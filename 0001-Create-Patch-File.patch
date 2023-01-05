@@ -1,0 +1,253 @@
+From c0420d250577f7adbd8b2dbc0d0510931429d591 Mon Sep 17 00:00:00 2001
+From: Khushi Jain <khushi0195.cse19@chitkara.edu.in>
+Date: Thu, 5 Jan 2023 21:05:56 +0530
+Subject: [PATCH] Create Patch File
+
+---
+ .idea/.gitignore                              |  3 ++
+ .../inspectionProfiles/profiles_settings.xml  |  6 +++
+ .idea/jpmc-task-1.iml                         | 14 ++++++
+ .idea/misc.xml                                |  4 ++
+ .idea/modules.xml                             |  8 +++
+ .idea/vcs.xml                                 |  6 +++
+ README.md                                     | 50 ++++++++++++++++++-
+ client.py                                     | 11 ++--
+ client_test.py                                | 46 +++++++++++++++++
+ 9 files changed, 143 insertions(+), 5 deletions(-)
+ create mode 100644 .idea/.gitignore
+ create mode 100644 .idea/inspectionProfiles/profiles_settings.xml
+ create mode 100644 .idea/jpmc-task-1.iml
+ create mode 100644 .idea/misc.xml
+ create mode 100644 .idea/modules.xml
+ create mode 100644 .idea/vcs.xml
+ create mode 100644 client_test.py
+
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+index 0000000..26d3352
+--- /dev/null
++++ b/.idea/.gitignore
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+index 0000000..105ce2d
+--- /dev/null
++++ b/.idea/inspectionProfiles/profiles_settings.xml
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+diff --git a/.idea/jpmc-task-1.iml b/.idea/jpmc-task-1.iml
+new file mode 100644
+index 0000000..8e5446a
+--- /dev/null
++++ b/.idea/jpmc-task-1.iml
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/venv" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++  <component name="PyDocumentationSettings">
++    <option name="format" value="PLAIN" />
++    <option name="myDocStringFormat" value="Plain" />
++  </component>
++</module>
+\ No newline at end of file
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+index 0000000..214712c
+--- /dev/null
++++ b/.idea/misc.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (jpmc-task-1)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+index 0000000..b31b630
+--- /dev/null
++++ b/.idea/modules.xml
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/jpmc-task-1.iml" filepath="$PROJECT_DIR$/.idea/jpmc-task-1.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+index 0000000..35eb1dd
+--- /dev/null
++++ b/.idea/vcs.xml
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/README.md b/README.md
+index 14926f5..a6fb281 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,48 @@
+-# JPMC Task 1
+-Starter repo for task 1 of the JPMC software engineering program
++
++
++Task Overview | Installation Instructions | Link to Module 1 | JP Morgan Chase & Co Software Engineering Virtual Experience
++
++Introduction
++Experience Technology at JP Morgan Chase & Co
++Try out what real work is like in the technology team at JP Morgan Chase & Co. Fast track to the tech team with your work.
++
++Module 1 Task Overview
++Interface with a stock price data feed and set up your system for analysis of the data
++
++Aim: We want to process the data feed of stock A and stock B’s price to enable us to analyse when trading for the stock should occur.
++
++Please clone this repository to start the task
++Adjust the getRatio, getDataPoint and main functions
++Bonus: Pass all unit tests and add more to cover edge cases
++Upload a git patch file as the submission to this task
++Set up / Installation
++In order to get the server and client application code working on your machine, follow the setup here
++
++Note:This is the Python 3 version of the JPM 1 exercise. The Python 2.7 version is in this other repo
++
++How to Run
++To start the server, run
++python server3.py
++this will create random market called 'test.csv' in your working directory if one does not already exist.
++
++If you encounter an issue with datautil.parser, run this command:
++
++pip install python-dateutil
++If you don't have pip yet, you can install it from: https://pip.pypa.io/en/stable/installing/
++
++To start the example client, run:
++
++python client3.py
++To unit test the example client, run: python client_test.py
++
++How to request from the server using curl
++Query:
++$ curl 'http://localhost:8080/query?id=1'
++{"id": "1", "top_ask": {"price": 129.18, "size": 70}, "timestamp": "2016-08-06 12:32:11.821574", "top_bid": {"price": 128.79, "size": 61}}
++How to fix the code to meet objectives
++To make the changes necessary to complete the objectives of this task, follow this guide.
++
++To do the bonus task, read this.
++
++How to submit your work
++A patch file is what is required from you to submit. To create a patch file, follow this guide. Then submit the patch file in the JPM Module 1 Page.
+\ No newline at end of file
+diff --git a/client.py b/client.py
+index 3fc09b7..0fc69dc 100644
+--- a/client.py
++++ b/client.py
+@@ -35,14 +35,17 @@ def getDataPoint(quote):
+     stock = quote['stock']
+     bid_price = float(quote['top_bid']['price'])
+     ask_price = float(quote['top_ask']['price'])
+-    price = bid_price
++    price = (bid_price + ask_price)/2
+     return stock, bid_price, ask_price, price
+ 
+ 
+ def getRatio(price_a, price_b):
+     """ Get ratio of price_a and price_b """
+     """ ------------- Update this function ------------- """
+-    return 1
++    # using ternary operator to keep ZeroDivisionError in check
++    if (price_b == 0):
++        return
++    return price_a / price_b
+ 
+ 
+ # Main
+@@ -52,8 +55,10 @@ if __name__ == "__main__":
+         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
+ 
+         """ ----------- Update to get the ratio --------------- """
++        prices = {}
+         for quote in quotes:
+             stock, bid_price, ask_price, price = getDataPoint(quote)
++            prices[stock] = price
+             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
+ 
+-        print("Ratio %s" % getRatio(price, price))
++        print("Ratio %s" % (getRatio(prices['ABC'], prices['DEF'])))
+diff --git a/client_test.py b/client_test.py
+new file mode 100644
+index 0000000..30279a1
+--- /dev/null
++++ b/client_test.py
+@@ -0,0 +1,46 @@
++import unittest
++from client import getDataPoint, getRatio
++
++
++class ClientTest(unittest.TestCase):
++    def test_getDataPoint_calculatePrice(self):
++        quotes = [
++            {'top_ask': {'price': 121.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453',
++             'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'Stock1'},
++            {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453',
++             'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'Stock2'}
++        ]
++        """ ------------ Add the assertion below ------------ """
++        for quote in quotes:
++            self.assertEqual(getDataPoint(quote), (
++             (quote["stock"], quote['top_bid']['price'], quote['top_ask']['price'], (quote['top_bid']['price'] +
++                                                                                     quote['top_ask']['price']) / 2)))
++
++    def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
++        quotes = [
++            {'top_ask': {'price': 119.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453',
++             'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'Stock1'},
++            {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453',
++             'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'Stock2'}
++        ]
++        """ ------------ Add the assertion below ------------ """
++        for quote in quotes:
++            self.assertEqual(getDataPoint(quote), (
++             (quote["stock"], quote['top_bid']['price'], quote['top_ask']['price'], (quote['top_bid']['price'] +
++                                                                                     quote['top_ask']['price']) / 2)))
++
++    """ ------------ Add more unit tests ------------ """
++
++    # normal prices testing for get_ratio function
++    def test_getRatio(self):
++        prices = [121.2, 121.68, 119.2, 121.68, 117.7, 119.1, 120.09, 118.8, 120.45, 145.56, 0, 34.4]
++        for i in range(0, len(prices), 2):
++            self.assertEqual((prices[i] / prices[i + 1]), getRatio(prices[i], prices[i + 1]))
++
++    # testing  get_ratio function if none is return when divide by zero
++    def test_getRatio_zeroDivisionError(self):
++        self.assertEqual(None, getRatio(121.1, 0))
++
++
++if __name__ == '__main__':
++    unittest.main()
+-- 
+2.35.1.windows.2
+
